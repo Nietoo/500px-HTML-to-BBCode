@@ -1,0 +1,53 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>500px HTML to BBCode converter</title>
+  <meta name="description" content="500px HTML to BBCode converter">
+  <meta name="author" content="Adrián Nieto Rodríguez">
+  
+  <style TYPE="text/css"> 
+  textarea{
+	width: 600px;
+	height: 200px;
+  }
+  input, textarea{
+     display: block;
+  }
+  
+  </style> 
+  
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript">
+  function convert(){
+	html = $.parseHTML($('#input').val());
+	image_src = $('p img', html).attr('src');
+	image_url = $('a', html).attr('href');
+	image_title = $('a', html).text();
+	
+	if (!image_src || !image_url || !image_title) {
+	 return 1;
+	}
+
+	output = "[url="+image_url+"]\n[img]"+image_src+"[/img][/url]\n[url="+image_url+"]"+image_title+"\n[/url]";
+	$('#input').val(output);
+	$('#input').select();
+  } 
+  </script>
+</head>
+
+<body>	
+  <h1> 500px HTML to BBCode</h1>
+  <div>
+    <textarea id="input"></textarea>
+    <input type="button" value="Convert" onClick="convert()">
+  </div>
+  <p> 1. Click embed button </p>
+  <img src='tuto1.jpg' width='400px'>
+  <p> 2. Copy HTML code </p>
+  <img src='tuto2.jpg' width='400px'>
+  <p> 3. Paste here and click Convert</p>
+</body>
+</html>
