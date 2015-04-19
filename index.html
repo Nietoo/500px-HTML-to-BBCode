@@ -8,17 +8,20 @@
   <meta name="description" content="500px HTML to BBCode converter">
   <meta name="author" content="Adrián Nieto Rodríguez">
   
-  <style TYPE="text/css"> 
-  textarea{
-	width: 600px;
-	height: 200px;
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+  <style type="text/css"> 
+  textarea.form-control{
+     height: 200px;
   }
-  input, textarea{
-     display: block;
+  img{
+    margin-bottom: 10px;
   }
   
   </style> 
-  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+  
   <script type="text/javascript">
   function convert(){
 	html = $.parseHTML($('#input').val());
@@ -46,19 +49,29 @@
   ga('send', 'pageview');
 
   </script>
-  
 </head>
 
-<body>	
-  <h1> 500px HTML to BBCode</h1>
-  <div>
-    <textarea id="input"></textarea>
-    <input type="button" value="Convert" onClick="convert();ga('send', 'event', 'button', 'click', 'convert');">
+<body>
+  <div class="container">
+    <div class="jumbotron">	
+      <h1> 500px HTML to BBCode</h1>
+    </div>
+    <form class="col-md-7">
+      <div class="form-group">
+        <textarea class="form-control" id="input"></textarea>
+      </div>
+      <input class="btn btn-default btn-lg" type="button" value="Convert" onClick="convert();ga('send', 'event', 'button', 'click', 'convert');">
+    </form>
+    <div class="col-md-5">
+      <p><strong>1. Click embed button</strong></p>
+      <img class="img-responsive" src='tuto1.jpg'>
+      <p><strong>2. Copy HTML code</strong></p>
+      <img class="img-responsive" src='tuto2.jpg'>
+      <p><strong>3. Paste here and click Convert</strong></p>
+    </div>
   </div>
-  <p> 1. Click embed button </p>
-  <img src='tuto1.jpg' width='400px'>
-  <p> 2. Copy HTML code </p>
-  <img src='tuto2.jpg' width='400px'>
-  <p> 3. Paste here and click Convert</p>
+
+  <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
 </html>
