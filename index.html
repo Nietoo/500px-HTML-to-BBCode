@@ -26,8 +26,8 @@
   function convert(){
 	html = $.parseHTML($('#input').val());
 	image_src = $('p img', html).attr('src');
+	image_title = $('p img', html).attr('alt');
 	image_url = $('a', html).attr('href');
-	image_title = $('a', html).text();
 	
 	if (!image_src || !image_url || !image_title) {
 	 return 1;
